@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import ProfileView, HealthCheckView
+from .views import ProfileView, HealthView
 
 urlpatterns = [
-    path('me', ProfileView.as_view(), name='profile'),
-    path('health', HealthCheckView.as_view(), name='health'),
+    path('me', ProfileView.as_view()),
+    path('health', HealthView.as_view()),
+
 ]

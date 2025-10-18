@@ -22,12 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY', defuault="django-insecure-z0xqkj79!3rj0t*&4c((ue6jqmv3uqh&^mlp2@6_j&hodwd5ol'")
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-z0xqkj79!3rj0t*&4c((ue6jqmv3uqh&^mlp2@6_j&hodwd5ol')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=True)
-
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -137,11 +136,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 # Custom settings
-USER_EMAIL = env('USER_EMAIL', default='your.email@example.com')
-USER_NAME = env('USER_NAME', default='Your Full Name')
-USER_STACK = env('USER_STACK', default='Python/Django')
-CAT_FACT_TIMEOUT = env.int('CAT_FACT_TIMEOUT', default=5)
-FALLBACK_FACT = env('FALLBACK_FACT', default='Cats are amazing creatures with unique personalities.')
+USER_EMAIL = os.getenv('USER_EMAIL', default='kachimaxy2@gmail.com')
+USER_NAME = os.getenv('USER_NAME', default='Gerard Ugwu Onyedikachi')
+USER_STACK = os.getenv('USER_STACK', default='Python/Django')
+CAT_FACT_TIMEOUT = 8
+FALLBACK_FACT = 'Cats are amazing creatures with unique personalities.'
 
 # Logging
 LOGGING = {
